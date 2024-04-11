@@ -1,4 +1,4 @@
-package com.mikeshaggy.hms;
+package com.mikeshaggy.hms.entity;
 
 public class Guest {
     private String firstName;
