@@ -15,7 +15,7 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     @Setter(AccessLevel.NONE)
-    private long id;
+    private Long id;
 
     @Column(name="street_name")
     private String streetName;

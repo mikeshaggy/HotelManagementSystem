@@ -14,7 +14,7 @@ public class ExtraServiceCategoryEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     @Setter(AccessLevel.NONE)
-    private Long id;
+    private Integer id;
 
     @Enumerated(EnumType.STRING)
     @Column(name="name")

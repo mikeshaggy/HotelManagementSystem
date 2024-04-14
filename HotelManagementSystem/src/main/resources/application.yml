@@ -16,3 +16,6 @@ spring:
         username: hmsadmin
     main:
         banner-mode: 'off'
+    data:
+        rest:
+            base-path: /hotel

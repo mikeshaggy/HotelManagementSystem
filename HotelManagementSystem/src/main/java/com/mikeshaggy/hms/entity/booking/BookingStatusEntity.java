@@ -15,7 +15,7 @@ public class BookingStatusEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     @Setter(AccessLevel.NONE)
-    private long id;
+    private Integer id;
 
     @Enumerated(EnumType.STRING)
     @Column(name="name")

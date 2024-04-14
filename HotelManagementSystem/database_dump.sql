@@ -31,7 +31,7 @@ CREATE TABLE `address` (
   `city` varchar(100) DEFAULT NULL,
   `country` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,9 +88,8 @@ DROP TABLE IF EXISTS `booking_status`;
 CREATE TABLE `booking_status` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,6 +98,7 @@ CREATE TABLE `booking_status` (
 
 LOCK TABLES `booking_status` WRITE;
 /*!40000 ALTER TABLE `booking_status` DISABLE KEYS */;
+INSERT INTO `booking_status` VALUES (1,'PENDING'),(2,'CONFIRMED'),(3,'CANCELLED'),(4,'CHECKED_IN'),(5,'CHECKED_OUT'),(6,'NO_SHOW');
 /*!40000 ALTER TABLE `booking_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,14 +111,14 @@ DROP TABLE IF EXISTS `extra_service`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `extra_service` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `price` decimal(4,2) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `price` decimal(5,2) DEFAULT NULL,
+  `price_per_person` tinyint(1) DEFAULT NULL,
   `extra_service_category_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `extra_service_category_id` (`extra_service_category_id`),
   CONSTRAINT `extra_service_ibfk_1` FOREIGN KEY (`extra_service_category_id`) REFERENCES `extra_service_category` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,6 +127,7 @@ CREATE TABLE `extra_service` (
 
 LOCK TABLES `extra_service` WRITE;
 /*!40000 ALTER TABLE `extra_service` DISABLE KEYS */;
+INSERT INTO `extra_service` VALUES (1,'Private Dining Experience',150.00,1,1),(2,'Gourmet Picnic Basket',80.00,0,1),(3,'Room Service',10.00,0,1),(4,'Aromatherapy Massage',120.00,1,2),(5,'Hot Stone Massage',150.00,1,2),(6,'Wellness Workshop',30.00,1,2),(7,'Bicycle Rental',20.00,1,3),(8,'Guided Hiking Tour',50.00,1,3),(9,'Art Workshop',40.00,1,3),(10,'Personalized City Tour',100.00,1,4),(11,'Airport Transfer',20.00,0,4),(12,'In-Room Champagne & Flowers',100.00,0,4),(13,'Pet-Friendly Amentities',25.00,0,5);
 /*!40000 ALTER TABLE `extra_service` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,7 +168,7 @@ CREATE TABLE `extra_service_category` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,6 +177,7 @@ CREATE TABLE `extra_service_category` (
 
 LOCK TABLES `extra_service_category` WRITE;
 /*!40000 ALTER TABLE `extra_service_category` DISABLE KEYS */;
+INSERT INTO `extra_service_category` VALUES (1,'FOOD_AND_BEVERAGE'),(2,'SPA_WELLNESS'),(3,'RECREATIONAL'),(4,'CONCIERGE'),(5,'OTHER');
 /*!40000 ALTER TABLE `extra_service_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -219,7 +221,7 @@ DROP TABLE IF EXISTS `room`;
 CREATE TABLE `room` (
   `id` int NOT NULL AUTO_INCREMENT,
   `room_number` varchar(5) DEFAULT NULL,
-  `base_price` decimal(4,2) DEFAULT NULL,
+  `base_price` decimal(5,2) DEFAULT NULL,
   `room_type_id` int DEFAULT NULL,
   `room_status_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -227,7 +229,7 @@ CREATE TABLE `room` (
   KEY `room_status_id` (`room_status_id`),
   CONSTRAINT `room_ibfk_1` FOREIGN KEY (`room_type_id`) REFERENCES `room_type` (`id`),
   CONSTRAINT `room_ibfk_2` FOREIGN KEY (`room_status_id`) REFERENCES `room_status` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -236,6 +238,7 @@ CREATE TABLE `room` (
 
 LOCK TABLES `room` WRITE;
 /*!40000 ALTER TABLE `room` DISABLE KEYS */;
+INSERT INTO `room` VALUES (1,'104',100.00,1,1),(2,'105',100.00,1,1),(3,'106',100.00,1,1),(4,'107',100.00,1,1),(5,'108',100.00,1,1),(6,'109',100.00,1,1),(7,'110',100.00,1,1),(8,'111',100.00,1,1),(9,'112',100.00,1,1),(10,'113',100.00,1,1),(11,'114',100.00,2,1),(12,'115',100.00,2,1),(13,'116',100.00,2,1),(14,'117',100.00,2,1),(15,'118',100.00,2,1),(16,'119',100.00,2,1),(17,'120',100.00,2,1),(18,'121',100.00,2,1),(19,'122',100.00,2,1),(20,'123',100.00,2,1),(21,'124',100.00,2,1),(22,'125',100.00,2,1),(23,'126',100.00,2,1),(24,'127',100.00,2,1),(25,'128',100.00,2,1),(26,'129',100.00,2,1),(27,'130',100.00,3,1),(28,'131',100.00,3,1),(29,'132',100.00,3,1),(30,'133',100.00,3,1),(31,'134',100.00,3,1),(32,'135',100.00,3,1),(33,'136',100.00,3,1),(34,'137',100.00,3,1),(35,'138',100.00,3,1),(36,'139',100.00,3,1),(37,'140',100.00,3,1),(38,'141',100.00,3,1),(39,'142',100.00,3,1),(40,'143',100.00,3,1),(41,'144',100.00,3,1),(42,'145',100.00,3,1),(43,'146',150.00,4,1),(44,'148',150.00,4,1),(45,'150',150.00,4,1),(46,'152',150.00,4,1),(47,'154',150.00,4,1),(48,'156',150.00,4,1),(49,'158',200.00,6,1),(50,'160',200.00,6,1),(51,'162',200.00,6,1),(52,'147',150.00,5,1),(53,'149',150.00,5,1),(54,'151',150.00,5,1),(55,'153',150.00,5,1),(56,'155',150.00,5,1),(57,'157',150.00,5,1),(58,'159',250.00,7,1),(59,'161',250.00,7,1),(60,'163',250.00,7,1);
 /*!40000 ALTER TABLE `room` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -249,9 +252,8 @@ DROP TABLE IF EXISTS `room_status`;
 CREATE TABLE `room_status` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -260,6 +262,7 @@ CREATE TABLE `room_status` (
 
 LOCK TABLES `room_status` WRITE;
 /*!40000 ALTER TABLE `room_status` DISABLE KEYS */;
+INSERT INTO `room_status` VALUES (1,'CLEAN'),(2,'DIRTY'),(3,'UNDER_MAINTENANCE'),(4,'OUT_OF_ORDER');
 /*!40000 ALTER TABLE `room_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -273,9 +276,8 @@ DROP TABLE IF EXISTS `room_type`;
 CREATE TABLE `room_type` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -284,6 +286,7 @@ CREATE TABLE `room_type` (
 
 LOCK TABLES `room_type` WRITE;
 /*!40000 ALTER TABLE `room_type` DISABLE KEYS */;
+INSERT INTO `room_type` VALUES (1,'CLASSIC_SINGLE'),(2,'CLASSIC_DOUBLE'),(3,'CLASSIC_TWIN'),(4,'DELUXE_DOUBLE'),(5,'DELUXE_TWIN'),(6,'SUITE'),(7,'EXECUTIVE_SUITE');
 /*!40000 ALTER TABLE `room_type` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -296,4 +299,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-11 22:10:54
+-- Dump completed on 2024-04-14 15:15:20

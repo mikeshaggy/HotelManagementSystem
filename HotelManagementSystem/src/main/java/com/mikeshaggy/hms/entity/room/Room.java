@@ -14,7 +14,7 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     @Setter(AccessLevel.NONE)
-    private Long id;
+    private Integer id;
 
     @Column(name="room_number")
     private String roomNumber;

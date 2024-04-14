@@ -14,7 +14,7 @@ public class ExtraService {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     @Setter(AccessLevel.NONE)
-    private Long id;
+    private Integer id;
 
     @Column(name="name")
     private String name;
