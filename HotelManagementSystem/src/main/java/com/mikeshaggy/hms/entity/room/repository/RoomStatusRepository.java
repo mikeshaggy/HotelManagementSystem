@@ -1,4 +1,4 @@
-package com.mikeshaggy.hms.dao;
+package com.mikeshaggy.hms.entity.room.repository;
 
 import com.mikeshaggy.hms.entity.room.RoomStatusEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

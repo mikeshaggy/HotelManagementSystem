@@ -1,4 +1,4 @@
-package com.mikeshaggy.hms.dao;
+package com.mikeshaggy.hms.entity.address.repository;
 
 import com.mikeshaggy.hms.entity.address.Address;
 import org.springframework.data.jpa.repository.JpaRepository;

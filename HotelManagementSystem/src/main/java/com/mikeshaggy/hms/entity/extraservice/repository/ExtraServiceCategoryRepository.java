@@ -1,4 +1,4 @@
-package com.mikeshaggy.hms.dao;
+package com.mikeshaggy.hms.entity.extraservice.repository;
 
 import com.mikeshaggy.hms.entity.extraservice.ExtraServiceCategoryEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

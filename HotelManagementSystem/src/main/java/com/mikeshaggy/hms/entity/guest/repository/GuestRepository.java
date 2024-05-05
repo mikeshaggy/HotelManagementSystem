@@ -1,4 +1,4 @@
-package com.mikeshaggy.hms.dao;
+package com.mikeshaggy.hms.entity.guest.repository;
 
 import com.mikeshaggy.hms.entity.guest.Guest;
 import org.springframework.data.jpa.repository.JpaRepository;
