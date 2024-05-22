@@ -1,6 +1,5 @@
 package com.mikeshaggy.hms.booking.entity;
 
-import com.mikeshaggy.hms.booking.status.entity.BookingStatusEntity;
 import com.mikeshaggy.hms.amenity.entity.Amenity;
 import com.mikeshaggy.hms.guest.entity.Guest;
 import com.mikeshaggy.hms.room.entity.Room;
@@ -13,31 +12,20 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "booking")
 @Data
 public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     @Setter(AccessLevel.NONE)
     private Long id;
-
-    @Column(name = "start_date")
     private LocalDate startDate;
-
-    @Column(name = "end_date")
     private LocalDate endDate;
-
-    @Column(name = "people")
     private Integer people;
-
-    @Column(name = "total_price")
     private Double totalPrice;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "booking_status_id")
-    private BookingStatusEntity bookingStatus;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private BookingStatus bookingStatus;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "room_id")
@@ -49,9 +37,23 @@ public class Booking {
 
     @ManyToMany
     @JoinTable(
-            name = "extra_service_booking",
+            name = "amenity_booking",
             joinColumns = @JoinColumn(name = "booking_id"),
-            inverseJoinColumns = @JoinColumn(name = "extra_service_id")
+            inverseJoinColumns = @JoinColumn(name = "amenity_id")
     )
     List<Amenity> amenities;
+
+    public Booking() {
+    }
+
+    public Booking(LocalDate startDate, LocalDate endDate, Integer people, Double totalPrice, BookingStatus bookingStatus, Room room, Guest guest, List<Amenity> amenities) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.people = people;
+        this.totalPrice = totalPrice;
+        this.bookingStatus = bookingStatus;
+        this.room = room;
+        this.guest = guest;
+        this.amenities = amenities;
+    }
 }
