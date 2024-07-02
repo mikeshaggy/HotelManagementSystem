@@ -1,12 +1,12 @@
-logging:
-    level:
-        org:
-            hibernate:
-                SQL: debug
-                orm:
-                    jdbc:
-                        bind: trace
-        root: warn
+#logging:
+#    level:
+#        org:
+#            hibernate:
+#                SQL: debug
+#                orm:
+#                    jdbc:
+#                        bind: trace
+#        root: warn
 spring:
     application:
         name: HotelManagementSystem
