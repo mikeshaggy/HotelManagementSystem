@@ -1,5 +1,19 @@
 package com.mikeshaggy.hms.user.entity;
 
-public enum Role {
-    RECEPTIONIST, MANAGER, ACCOUNTANT, BOOKING_AGENT, ADMIN, HR_STAFF
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
+public class Role {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String name;
 }

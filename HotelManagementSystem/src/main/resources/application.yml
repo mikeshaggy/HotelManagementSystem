@@ -19,3 +19,7 @@ spring:
     data:
         rest:
             base-path: /hotel
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true

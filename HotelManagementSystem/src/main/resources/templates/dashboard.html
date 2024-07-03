@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>Hotel Management System - Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
-<h1>Tu będzie dashboard</h1>
+    <header>
+        <h1 th:text="'Dashboard - ' + ${hotelName}"></h1>
+    </header>
+    <main>
+        <section>
+            <h2>Statystyki hotelu</h2>
+            <ul>
+                <li>Całkowita liczba pokoi: <span th:text="${totalRooms}"></span></li>
+                <li>Procentowe obłożenie: <span th:text="${occupancyRate} + '%'"></span></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Funkcje zarządzania</h2>
+            <ul>
+                <li><a href="/rooms">Zarządzaj pokojami</a></li>
+                <li><a href="/reservations">Zarządzaj rezerwacjami</a></li>
+                <li><a href="/guests">Zarządzaj gośćmi</a></li>
+            </ul>
+        </section>
+    </main>
 </body>
 </html>
