@@ -1,6 +1,6 @@
-package com.mikeshaggy.hms.amenity.repository;
+package com.mikeshaggy.hms.repository;
 
-import com.mikeshaggy.hms.amenity.entity.Amenity;
+import com.mikeshaggy.hms.model.Amenity;
 import org.springframework.data.jpa.repository.JpaRepository;
 //import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

@@ -1,4 +1,4 @@
-package com.mikeshaggy.hms.address.entity;
+package com.mikeshaggy.hms.model;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

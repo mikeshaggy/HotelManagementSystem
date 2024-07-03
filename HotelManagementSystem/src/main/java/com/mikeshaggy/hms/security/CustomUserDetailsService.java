@@ -1,8 +1,8 @@
 package com.mikeshaggy.hms.security;
 
-import com.mikeshaggy.hms.user.entity.Role;
-import com.mikeshaggy.hms.user.entity.UserEntity;
-import com.mikeshaggy.hms.user.entity.UserRepository;
+import com.mikeshaggy.hms.model.Role;
+import com.mikeshaggy.hms.model.UserEntity;
+import com.mikeshaggy.hms.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;

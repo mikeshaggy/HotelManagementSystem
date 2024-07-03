@@ -1,5 +1,6 @@
-package com.mikeshaggy.hms.user.entity;
+package com.mikeshaggy.hms.repository;
 
+import com.mikeshaggy.hms.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

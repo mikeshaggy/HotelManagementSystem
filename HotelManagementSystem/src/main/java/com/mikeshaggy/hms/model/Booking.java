@@ -1,8 +1,5 @@
-package com.mikeshaggy.hms.booking.entity;
+package com.mikeshaggy.hms.model;
 
-import com.mikeshaggy.hms.amenity.entity.Amenity;
-import com.mikeshaggy.hms.guest.entity.Guest;
-import com.mikeshaggy.hms.room.entity.Room;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;

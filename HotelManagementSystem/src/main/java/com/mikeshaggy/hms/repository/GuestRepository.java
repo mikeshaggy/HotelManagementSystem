@@ -1,6 +1,6 @@
-package com.mikeshaggy.hms.guest.repository;
+package com.mikeshaggy.hms.repository;
 
-import com.mikeshaggy.hms.guest.entity.Guest;
+import com.mikeshaggy.hms.model.Guest;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface GuestRepository extends JpaRepository<Guest, Long> {

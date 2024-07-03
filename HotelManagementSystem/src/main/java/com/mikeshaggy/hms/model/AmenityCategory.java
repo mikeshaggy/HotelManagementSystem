@@ -1,5 +1,5 @@
-package com.mikeshaggy.hms.amenity.entity;
+package com.mikeshaggy.hms.model;
 
-public enum Category {
+public enum AmenityCategory {
     FOOD_AND_BEVERAGE, SPA_WELLNESS, RECREATIONAL, ENTERTAINMENT, CONCIERGE, PERSONALIZED, OTHER
 }

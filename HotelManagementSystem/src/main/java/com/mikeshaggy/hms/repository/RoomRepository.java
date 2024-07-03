@@ -1,6 +1,6 @@
-package com.mikeshaggy.hms.room.repository;
+package com.mikeshaggy.hms.repository;
 
-import com.mikeshaggy.hms.room.entity.Room;
+import com.mikeshaggy.hms.model.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoomRepository extends JpaRepository<Room, Integer> {

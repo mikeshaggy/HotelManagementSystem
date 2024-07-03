@@ -1,4 +1,4 @@
-package com.mikeshaggy.hms.user.entity;
+package com.mikeshaggy.hms.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

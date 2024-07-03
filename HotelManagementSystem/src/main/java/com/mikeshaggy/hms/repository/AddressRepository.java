@@ -1,6 +1,6 @@
-package com.mikeshaggy.hms.address.repository;
+package com.mikeshaggy.hms.repository;
 
-import com.mikeshaggy.hms.address.entity.Address;
+import com.mikeshaggy.hms.model.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 //@RepositoryRestResource(path = "addresses")

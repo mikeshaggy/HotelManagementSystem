@@ -1,4 +1,4 @@
-package com.mikeshaggy.hms.amenity.entity;
+package com.mikeshaggy.hms.model;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -16,12 +16,12 @@ public class Amenity {
     private Double price;
     private boolean pricePerPerson;
     @Enumerated(EnumType.STRING)
-    private Category category;
+    private AmenityCategory category;
 
     public Amenity() {
     }
 
-    public Amenity(String name, Double price, boolean pricePerPerson, Category category) {
+    public Amenity(String name, Double price, boolean pricePerPerson, AmenityCategory category) {
         this.name = name;
         this.price = price;
         this.pricePerPerson = pricePerPerson;
