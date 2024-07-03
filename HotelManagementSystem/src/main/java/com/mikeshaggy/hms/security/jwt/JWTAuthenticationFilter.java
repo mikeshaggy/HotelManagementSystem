@@ -1,5 +1,6 @@
-package com.mikeshaggy.hms.security;
+package com.mikeshaggy.hms.security.jwt;
 
+import com.mikeshaggy.hms.security.CustomUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

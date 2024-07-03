@@ -1,8 +1,8 @@
-package com.mikeshaggy.hms.security;
+package com.mikeshaggy.hms.security.jwt;
 
+import com.mikeshaggy.hms.security.SecurityConstants;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
