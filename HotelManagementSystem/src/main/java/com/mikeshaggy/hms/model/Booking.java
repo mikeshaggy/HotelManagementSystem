@@ -16,12 +16,13 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     private Long id;
+    @Enumerated(EnumType.STRING)
+    private RoomType roomType;
     private LocalDate startDate;
     private LocalDate endDate;
     private Integer people;
     private Double totalPrice;
     @Enumerated(EnumType.STRING)
-    @Column(name = "status")
     private BookingStatus bookingStatus;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -35,8 +36,8 @@ public class Booking {
     @ManyToMany
     @JoinTable(
             name = "amenity_booking",
-            joinColumns = @JoinColumn(name = "booking_id"),
-            inverseJoinColumns = @JoinColumn(name = "amenity_id")
+            joinColumns = @JoinColumn(name = "booking_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "amenity_id", referencedColumnName = "id")
     )
     List<Amenity> amenities;
 

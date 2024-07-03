@@ -16,15 +16,15 @@ public class Amenity {
     private Double price;
     private boolean pricePerPerson;
     @Enumerated(EnumType.STRING)
-    private AmenityCategory category;
+    private AmenityCategory amenityCategory;
 
     public Amenity() {
     }
 
-    public Amenity(String name, Double price, boolean pricePerPerson, AmenityCategory category) {
+    public Amenity(String name, Double price, boolean pricePerPerson, AmenityCategory amenityCategory) {
         this.name = name;
         this.price = price;
         this.pricePerPerson = pricePerPerson;
-        this.category = category;
+        this.amenityCategory = amenityCategory;
     }
 }
