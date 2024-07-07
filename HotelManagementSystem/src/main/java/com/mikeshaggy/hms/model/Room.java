@@ -28,4 +28,8 @@ public class Room {
         this.roomType = roomType;
         this.roomStatus = roomStatus;
     }
+
+    public Room(RoomType roomType) {
+        this.roomType = roomType;
+    }
 }

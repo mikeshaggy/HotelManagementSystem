@@ -10,9 +10,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface BookingRepository extends JpaRepository<Booking, Long> {
-    @Query("SELECT b FROM Booking b WHERE b.roomType = :roomType AND b.startDate <= :endDate AND b.endDate >= :startDate")
+    @Query("select b from Booking b where b.roomType = :roomType and b.startDate <= :endDate and b.endDate >= :startDate")
     List<Booking> getBookingsByRoomTypeAndDateRange(@Param("roomType") RoomType roomType,
                                            @Param("startDate") LocalDate startDate,
                                            @Param("endDate") LocalDate endDate);
-
 }

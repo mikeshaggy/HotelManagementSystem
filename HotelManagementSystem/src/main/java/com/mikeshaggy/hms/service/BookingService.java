@@ -1,7 +1,6 @@
 package com.mikeshaggy.hms.service;
 
 import com.mikeshaggy.hms.model.Booking;
-import com.mikeshaggy.hms.model.RoomType;
 import com.mikeshaggy.hms.repository.BookingRepository;
 import com.mikeshaggy.hms.repository.GuestRepository;
 import com.mikeshaggy.hms.repository.RoomRepository;
@@ -23,21 +22,21 @@ public class BookingService {
         this.roomRepository = roomRepository;
     }
 
+    protected boolean isAvailable(Booking newBooking) {
 
+        int totalRoomsAvailable = roomRepository.countByRoomType(newBooking.getRoomType());
+        int roomsNotAvailable = 0;
 
-    public boolean isAvailable(Booking newBooking, RoomType roomType) {
-
-        List<Booking> bookingsBetweenDates = bookingRepository.getBookingsByRoomTypeAndDateRange(roomType,
-                newBooking.getStartDate(), newBooking.getEndDate());
+        List<Booking> bookingsBetweenDates = bookingRepository.getBookingsByRoomTypeAndDateRange(
+                newBooking.getRoomType(), newBooking.getStartDate(), newBooking.getEndDate());
 
         for (Booking booking : bookingsBetweenDates) {
-            System.out.println(bookingsBetweenDates.size());
-            if (bookingsDatesDoNotOverlap(newBooking, booking)) {
-                return true;
+            if (!bookingsDatesDoNotOverlap(newBooking, booking)) {
+                roomsNotAvailable++;
             }
         }
 
-        return false;
+        return roomsNotAvailable != totalRoomsAvailable;
     }
 
     protected boolean bookingsDatesDoNotOverlap(Booking newBooking, Booking existingBooking) {
@@ -47,18 +46,18 @@ public class BookingService {
         LocalDate existingBookingStartDate = existingBooking.getStartDate();
         LocalDate existingBookingEndDate = existingBooking.getEndDate();
 
-        if (isBetween(existingBookingStartDate, existingBookingEndDate, newBookingStartDate)
-                || isBetween(existingBookingStartDate, existingBookingEndDate, newBookingEndDate)) {
+        if (dateIsBetween(existingBookingStartDate, existingBookingEndDate, newBookingStartDate)
+                || dateIsBetween(existingBookingStartDate, existingBookingEndDate, newBookingEndDate)) {
             return false;
         }
-        if (isBetween(newBookingStartDate, newBookingEndDate, existingBookingStartDate)
-                || isBetween(newBookingStartDate, newBookingEndDate, existingBookingEndDate)) {
+        if (dateIsBetween(newBookingStartDate, newBookingEndDate, existingBookingStartDate)
+                || dateIsBetween(newBookingStartDate, newBookingEndDate, existingBookingEndDate)) {
             return false;
         }
         return true;
     }
 
-    private boolean isBetween(LocalDate periodStart, LocalDate periodEnd, LocalDate checkedDate) {
+    private boolean dateIsBetween(LocalDate periodStart, LocalDate periodEnd, LocalDate checkedDate) {
         return (checkedDate.isAfter(periodStart) && checkedDate.isBefore(periodEnd));
     }
 }

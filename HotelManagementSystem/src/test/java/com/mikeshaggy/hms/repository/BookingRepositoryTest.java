@@ -18,7 +18,7 @@ class BookingRepositoryTest {
     private BookingRepository bookingRepository;
 
     @Test
-    void shouldReturnBookingsByRoomTypeAndDates() {
+    void getBookingsByRoomTypeAndDateRange_shouldReturnCorrectBookings() {
         // Given
         List<Booking> mockedBookings = List.of(
                 new Booking(LocalDate.of(2024, 6, 19), LocalDate.of(2024, 6, 20), RoomType.CLASSIC_DOUBLE),

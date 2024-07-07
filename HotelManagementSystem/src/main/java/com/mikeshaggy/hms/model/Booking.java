@@ -54,4 +54,15 @@ public class Booking {
         this.guest = guest;
         this.amenities = amenities;
     }
+
+    public Booking(LocalDate startDate, LocalDate endDate) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
+    public Booking(LocalDate startDate, LocalDate endDate, RoomType roomType) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.roomType = roomType;
+    }
 }
