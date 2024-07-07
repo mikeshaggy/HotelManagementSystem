@@ -3,7 +3,7 @@ package com.mikeshaggy.hms.controller;
 import com.mikeshaggy.hms.dto.AuthResponseDto;
 import com.mikeshaggy.hms.dto.LoginDto;
 import com.mikeshaggy.hms.dto.RegisterDto;
-import com.mikeshaggy.hms.model.UserEntity;
+import com.mikeshaggy.hms.model.Employee;
 import com.mikeshaggy.hms.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +24,7 @@ public class AuthRestController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<UserEntity> register(@RequestBody RegisterDto registerDto) {
+    public ResponseEntity<Employee> register(@RequestBody RegisterDto registerDto) {
         if (authService.userExists(registerDto.getUsername())) {
             return ResponseEntity.badRequest().body(null);
         }

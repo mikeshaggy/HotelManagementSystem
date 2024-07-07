@@ -4,9 +4,9 @@ import com.mikeshaggy.hms.dto.AuthResponseDto;
 import com.mikeshaggy.hms.dto.LoginDto;
 import com.mikeshaggy.hms.dto.RegisterDto;
 import com.mikeshaggy.hms.model.Role;
-import com.mikeshaggy.hms.model.UserEntity;
+import com.mikeshaggy.hms.model.Employee;
 import com.mikeshaggy.hms.repository.RoleRepository;
-import com.mikeshaggy.hms.repository.UserRepository;
+import com.mikeshaggy.hms.repository.EmployeeRepository;
 import com.mikeshaggy.hms.security.jwt.JWTGenerator;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,15 +21,15 @@ import java.util.Collections;
 public class AuthService {
 
     private final AuthenticationManager authenticationManager;
-    private final UserRepository userRepository;
+    private final EmployeeRepository employeeRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
     private final JWTGenerator jwtGenerator;
 
-    public AuthService(AuthenticationManager authenticationManager, UserRepository userRepository,
+    public AuthService(AuthenticationManager authenticationManager, EmployeeRepository employeeRepository,
                        RoleRepository roleRepository, PasswordEncoder passwordEncoder, JWTGenerator jwtGenerator) {
         this.authenticationManager = authenticationManager;
-        this.userRepository = userRepository;
+        this.employeeRepository = employeeRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtGenerator = jwtGenerator;
@@ -43,18 +43,18 @@ public class AuthService {
     }
 
     public boolean userExists(String username) {
-        return userRepository.existsByUsername(username);
+        return employeeRepository.existsByUsername(username);
     }
 
-    public UserEntity registerUser(RegisterDto registerDto) {
-        UserEntity user = new UserEntity();
+    public Employee registerUser(RegisterDto registerDto) {
+        Employee user = new Employee();
         user.setUsername(registerDto.getUsername());
         user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
 
         Role roles = roleRepository.findByName("USER").get();
         user.setRoles(Collections.singletonList(roles));
 
-        userRepository.save(user);
+        employeeRepository.save(user);
 
         return user;
     }

@@ -1,8 +1,8 @@
 package com.mikeshaggy.hms.security;
 
 import com.mikeshaggy.hms.model.Role;
-import com.mikeshaggy.hms.model.UserEntity;
-import com.mikeshaggy.hms.repository.UserRepository;
+import com.mikeshaggy.hms.model.Employee;
+import com.mikeshaggy.hms.repository.EmployeeRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -18,15 +18,15 @@ import java.util.stream.Collectors;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    private final EmployeeRepository employeeRepository;
 
-    public CustomUserDetailsService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public CustomUserDetailsService(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity user = userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
+        Employee user = employeeRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
         return new User(user.getUsername(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
     }
 
