@@ -1,9 +1,7 @@
 package com.mikeshaggy.hms.repository;
 
 import com.mikeshaggy.hms.model.Amenity;
-import org.springframework.data.jpa.repository.JpaRepository;
-//import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import com.mikeshaggy.hms.repository.base.BaseRepository;
 
-//@RepositoryRestResource(path = "amenities")
-public interface AmenityRepository extends JpaRepository<Amenity, Long> {
+public interface AmenityRepository extends BaseRepository<Amenity, Integer> {
 }
