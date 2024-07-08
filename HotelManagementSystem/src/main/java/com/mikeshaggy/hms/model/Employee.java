@@ -1,7 +1,9 @@
 package com.mikeshaggy.hms.model;
 
+import com.mikeshaggy.hms.model.base.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
@@ -11,7 +13,8 @@ import java.util.List;
 @Table(name = "employee")
 @Data
 @NoArgsConstructor
-public class Employee  {
+@EqualsAndHashCode(callSuper = true)
+public class Employee extends BaseEntity<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,13 +1,16 @@
 package com.mikeshaggy.hms.model;
 
+import com.mikeshaggy.hms.model.base.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Setter;
 
 @Entity
 @Data
-public class Room {
+@EqualsAndHashCode(callSuper = true)
+public class Room extends BaseEntity<Integer> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
