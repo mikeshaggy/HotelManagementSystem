@@ -1,10 +1,10 @@
 package com.mikeshaggy.hms.repository;
 
 import com.mikeshaggy.hms.model.Role;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.mikeshaggy.hms.repository.base.BaseRepository;
 
 import java.util.Optional;
 
-public interface RoleRepository extends JpaRepository<Role, Integer> {
+public interface RoleRepository extends BaseRepository<Role, Integer> {
     Optional<Role> findByName(String name);
 }

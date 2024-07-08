@@ -1,14 +1,18 @@
 package com.mikeshaggy.hms.model;
 
+import com.mikeshaggy.hms.model.base.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Setter;
 
 
 @Entity
 @Data
-public class Guest {
+@EqualsAndHashCode(callSuper = true)
+public class Guest extends BaseEntity<Long> {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
@@ -32,5 +36,9 @@ public class Guest {
         this.phoneNumber = phoneNumber;
         this.idCardNumber = idCardNumber;
         this.address = address;
+    }
+
+    public Guest(String idCardNumber) {
+        this.idCardNumber = idCardNumber;
     }
 }

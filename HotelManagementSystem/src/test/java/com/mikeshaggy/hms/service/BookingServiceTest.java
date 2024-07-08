@@ -1,12 +1,10 @@
 package com.mikeshaggy.hms.service;
 
-import com.mikeshaggy.hms.exception.NoRoomAvailableException;
 import com.mikeshaggy.hms.model.Booking;
 import com.mikeshaggy.hms.model.RoomType;
 import com.mikeshaggy.hms.repository.BookingRepository;
 import com.mikeshaggy.hms.repository.GuestRepository;
 import com.mikeshaggy.hms.repository.RoomRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -20,7 +18,6 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)

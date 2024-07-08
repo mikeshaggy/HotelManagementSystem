@@ -2,8 +2,8 @@ package com.mikeshaggy.hms.repository;
 
 import com.mikeshaggy.hms.model.Room;
 import com.mikeshaggy.hms.model.RoomType;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.mikeshaggy.hms.repository.base.BaseRepository;
 
-public interface RoomRepository extends JpaRepository<Room, Integer> {
+public interface RoomRepository extends BaseRepository<Room, Integer> {
     Integer countByRoomType(RoomType roomType);
 }

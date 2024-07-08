@@ -1,8 +1,10 @@
 package com.mikeshaggy.hms.model;
 
+import com.mikeshaggy.hms.model.base.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -10,7 +12,8 @@ import java.util.List;
 
 @Entity
 @Data
-public class Booking {
+@EqualsAndHashCode(callSuper = true)
+public class Booking extends BaseEntity<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

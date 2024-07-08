@@ -1,11 +1,11 @@
 package com.mikeshaggy.hms.repository;
 
 import com.mikeshaggy.hms.model.Employee;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.mikeshaggy.hms.repository.base.BaseRepository;
 
 import java.util.Optional;
 
-public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
+public interface EmployeeRepository extends BaseRepository<Employee, Long> {
     Optional<Employee> findByUsername(String username);
     Boolean existsByUsername(String username);
 }

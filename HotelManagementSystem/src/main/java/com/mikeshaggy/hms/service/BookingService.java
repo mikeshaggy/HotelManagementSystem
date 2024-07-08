@@ -4,22 +4,29 @@ import com.mikeshaggy.hms.model.Booking;
 import com.mikeshaggy.hms.repository.BookingRepository;
 import com.mikeshaggy.hms.repository.GuestRepository;
 import com.mikeshaggy.hms.repository.RoomRepository;
+import com.mikeshaggy.hms.service.base.BaseService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class BookingService {
+public class BookingService extends BaseService<Booking, Long> {
 
     private final BookingRepository bookingRepository;
     private final GuestRepository guestRepository;
     private final RoomRepository roomRepository;
 
     public BookingService(BookingRepository bookingRepository, GuestRepository guestRepository, RoomRepository roomRepository) {
+        super(bookingRepository);
         this.bookingRepository = bookingRepository;
         this.guestRepository = guestRepository;
         this.roomRepository = roomRepository;
+    }
+
+    @Override
+    protected Class<Booking> getEntityClass() {
+        return Booking.class;
     }
 
     protected boolean isAvailable(Booking newBooking) {
