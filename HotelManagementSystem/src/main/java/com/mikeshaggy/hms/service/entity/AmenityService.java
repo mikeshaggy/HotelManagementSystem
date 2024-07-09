@@ -1,8 +1,7 @@
-package com.mikeshaggy.hms.service;
+package com.mikeshaggy.hms.service.entity;
 
 import com.mikeshaggy.hms.model.Amenity;
 import com.mikeshaggy.hms.repository.AmenityRepository;
-import com.mikeshaggy.hms.repository.base.BaseRepository;
 import com.mikeshaggy.hms.service.base.BaseService;
 import org.springframework.stereotype.Service;
 

@@ -4,7 +4,7 @@ import com.mikeshaggy.hms.dto.AuthResponseDto;
 import com.mikeshaggy.hms.dto.LoginDto;
 import com.mikeshaggy.hms.dto.RegisterDto;
 import com.mikeshaggy.hms.model.Employee;
-import com.mikeshaggy.hms.service.AuthService;
+import com.mikeshaggy.hms.service.entity.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
