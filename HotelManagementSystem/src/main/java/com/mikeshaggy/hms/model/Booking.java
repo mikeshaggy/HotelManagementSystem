@@ -19,7 +19,10 @@ public class Booking extends BaseEntity<Long> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     private Long id;
-    @Enumerated(EnumType.STRING)
+//    @Enumerated(EnumType.STRING)
+//    private RoomTypeEnum roomTypeEnum;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "room_type_id")
     private RoomType roomType;
     private LocalDate startDate;
     private LocalDate endDate;

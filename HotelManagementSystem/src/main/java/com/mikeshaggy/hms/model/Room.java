@@ -11,13 +11,17 @@ import lombok.Setter;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class Room extends BaseEntity<Integer> {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     private Integer id;
     private String roomNumber;
     private Double basePrice;
-    @Enumerated(EnumType.STRING)
+//    @Enumerated(EnumType.STRING)
+//    private RoomTypeEnum roomTypeEnum;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "room_type_id")
     private RoomType roomType;
     @Enumerated(EnumType.STRING)
     private RoomStatus roomStatus;
