@@ -2,7 +2,7 @@ package com.mikeshaggy.hms.controller;
 
 import com.mikeshaggy.hms.controller.base.BaseRestController;
 import com.mikeshaggy.hms.model.Role;
-import com.mikeshaggy.hms.service.RoleService;
+import com.mikeshaggy.hms.service.entity.RoleService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

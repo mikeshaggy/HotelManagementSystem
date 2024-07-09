@@ -2,7 +2,7 @@ package com.mikeshaggy.hms.controller;
 
 import com.mikeshaggy.hms.controller.base.BaseRestController;
 import com.mikeshaggy.hms.model.Guest;
-import com.mikeshaggy.hms.service.GuestService;
+import com.mikeshaggy.hms.service.entity.GuestService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,4 +16,8 @@ public class GuestRestController extends BaseRestController<Guest, Long> {
         super(guestService);
         this.guestService = guestService;
     }
+//
+//    public ResponseEntity<Guest> getGuestByIdCardNumber(String idCardNumber) {
+//        return ResponseEntity.ok()
+//    }
 }

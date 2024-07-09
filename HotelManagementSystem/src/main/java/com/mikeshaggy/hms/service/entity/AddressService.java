@@ -1,4 +1,4 @@
-package com.mikeshaggy.hms.service;
+package com.mikeshaggy.hms.service.entity;
 
 import com.mikeshaggy.hms.model.Address;
 import com.mikeshaggy.hms.repository.AddressRepository;

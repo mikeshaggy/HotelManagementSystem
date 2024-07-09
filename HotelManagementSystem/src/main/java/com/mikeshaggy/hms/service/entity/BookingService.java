@@ -1,4 +1,4 @@
-package com.mikeshaggy.hms.service;
+package com.mikeshaggy.hms.service.entity;
 
 import com.mikeshaggy.hms.model.Booking;
 import com.mikeshaggy.hms.repository.BookingRepository;
@@ -28,6 +28,23 @@ public class BookingService extends BaseService<Booking, Long> {
     protected Class<Booking> getEntityClass() {
         return Booking.class;
     }
+
+//    public Booking createBooking(RoomType roomType, LocalDate startDate, LocalDate endDate,
+//                                 Integer people, Guest guest) {
+//        Booking booking = new Booking(startDate, endDate, roomType);
+//
+//        if (!isAvailable(booking)) throw new NoRoomAvailableException(booking);
+//
+//        String guestIdCardNumber = guest.getIdCardNumber();
+//
+//        if (guestRepository.existsByIdCardNumber(guestIdCardNumber)) {
+//            booking.setGuest(guestRepository.findGuestByIdCardNumber(guestIdCardNumber));
+//        } else {
+//            guestRepository.save(guest);
+//            booking.setGuest(guest);
+//        }
+//        return null;
+//    }
 
     protected boolean isAvailable(Booking newBooking) {
 
