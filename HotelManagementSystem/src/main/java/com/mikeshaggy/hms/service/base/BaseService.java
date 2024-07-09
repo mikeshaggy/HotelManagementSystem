@@ -38,5 +38,9 @@ public abstract class BaseService<T extends BaseEntity<ID>, ID> {
         repository.deleteById(id);
     }
 
+    public List<T> addAll(List<T> entities) {
+        return repository.saveAll(entities);
+    }
+
     protected abstract Class<T> getEntityClass();
 }
