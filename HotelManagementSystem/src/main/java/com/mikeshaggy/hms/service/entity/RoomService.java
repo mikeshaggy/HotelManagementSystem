@@ -1,4 +1,4 @@
-package com.mikeshaggy.hms.service;
+package com.mikeshaggy.hms.service.entity;
 
 import com.mikeshaggy.hms.model.Room;
 import com.mikeshaggy.hms.repository.RoomRepository;

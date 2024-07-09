@@ -1,4 +1,4 @@
-package com.mikeshaggy.hms.service;
+package com.mikeshaggy.hms.service.entity;
 
 import com.mikeshaggy.hms.model.Guest;
 import com.mikeshaggy.hms.repository.GuestRepository;
@@ -19,4 +19,8 @@ public class GuestService extends BaseService<Guest, Long> {
     protected Class<Guest> getEntityClass() {
         return Guest.class;
     }
+//
+//    public Guest getGuestByIdCardNumber(String idCardNumber) {
+//        return guestRepository.findGuestByIdCardNumber(idCardNumber).orElseThrow(() -> new EntityNotFoundException())
+//    }
 }

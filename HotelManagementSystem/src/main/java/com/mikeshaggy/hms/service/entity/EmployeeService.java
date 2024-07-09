@@ -1,4 +1,4 @@
-package com.mikeshaggy.hms.service;
+package com.mikeshaggy.hms.service.entity;
 
 import com.mikeshaggy.hms.model.Employee;
 import com.mikeshaggy.hms.repository.EmployeeRepository;

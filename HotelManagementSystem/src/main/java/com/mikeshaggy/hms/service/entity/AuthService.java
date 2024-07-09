@@ -1,4 +1,4 @@
-package com.mikeshaggy.hms.service;
+package com.mikeshaggy.hms.service.entity;
 
 import com.mikeshaggy.hms.dto.AuthResponseDto;
 import com.mikeshaggy.hms.dto.LoginDto;

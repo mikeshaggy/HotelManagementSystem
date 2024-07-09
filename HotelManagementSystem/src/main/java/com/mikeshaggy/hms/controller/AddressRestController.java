@@ -2,7 +2,7 @@ package com.mikeshaggy.hms.controller;
 
 import com.mikeshaggy.hms.controller.base.BaseRestController;
 import com.mikeshaggy.hms.model.Address;
-import com.mikeshaggy.hms.service.AddressService;
+import com.mikeshaggy.hms.service.entity.AddressService;
 import org.springframework.web.bind.annotation.*;
 
 
